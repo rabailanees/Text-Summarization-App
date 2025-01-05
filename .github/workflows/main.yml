@@ -24,7 +24,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m venv venv
-        . venv/bin/activate
+        source venv/bin/activate  # Corrected for cross-platform usage
         pip install -r requirements.txt
 
     - name: Set Hugging Face API token
@@ -34,8 +34,6 @@ jobs:
       run: |
         pip install huggingface_hub
         huggingface-cli login --token ${{ secrets.HF_Token }}
-        # Create Hugging Face Space if it doesn't already exist
-        huggingface-cli repo create hugging-face-demo --type space
-        # Push the changes to your Hugging Face Space
+        # Ensure that you are authenticated for both huggingface-cli and git
+        git remote add huggingface https://huggingface.co/spaces/rabailanees/hugging-face-demo.git
         git push https://huggingface.co/spaces/rabailanees/hugging-face-demo.git main
-

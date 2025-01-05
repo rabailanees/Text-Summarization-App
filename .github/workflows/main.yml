@@ -33,7 +33,9 @@ jobs:
     - name: Deploy to Hugging Face Spaces
       run: |
         pip install huggingface_hub
+        # Ensure the Hugging Face token is correctly passed as an argument
         huggingface-cli login --token ${{ secrets.HF_Token }}
-        # Ensure that you are authenticated for both huggingface-cli and git
+        # Add Hugging Face remote repository
         git remote add huggingface https://huggingface.co/spaces/rabailanees/hugging-face-demo.git
-        git push https://huggingface.co/spaces/rabailanees/hugging-face-demo.git main
+        # Push to the Hugging Face repository
+        git push huggingface main

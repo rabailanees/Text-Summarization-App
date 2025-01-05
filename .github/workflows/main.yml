@@ -37,8 +37,5 @@ jobs:
         huggingface-cli login --token ${{ secrets.HF_Token }}
         # Add Hugging Face remote repository (optional if remote already exists)
         git remote add huggingface https://huggingface.co/spaces/rabailanees/hugging-face-demo.git
-        # Configure Git to use the token for authentication
-        git config --global credential.helper store
-        echo "https://${{ secrets.HF_Token }}:x-oauth-basic" > ~/.git-credentials
         # Push to Hugging Face repository
         git push huggingface main

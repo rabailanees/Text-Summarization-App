@@ -1,23 +1,41 @@
-name: Sync to Hugging Face hub
+name: CI/CD to Hugging Face Spaces
+
 on:
   push:
-    branches: [main]
-
-  # to run this workflow manually from the Actions tab
-  workflow_dispatch:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
-  sync-to-hub:
+  build_and_deploy:
     runs-on: ubuntu-latest
+    
     steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - name: Add remote 
-        env:
-          HF: ${{ secrets.HF }}
-        run: git remote add space https://noahgift:$HF@huggingface.co/spaces/noahgift/demo
-      - name: Push to hub
-        env:
-          HF: ${{ secrets.HF }}
-        run: git push --force https://noahgift:$HF@huggingface.co/spaces/noahgift/demo main
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+
+    - name: Install dependencies
+      run: |
+        python -m venv venv
+        . venv/bin/activate
+        pip install -r requirements.txt
+
+    - name: Set Hugging Face API token
+      run: echo "HF_TOKEN=${{ secrets.HF_Token }}" >> $GITHUB_ENV
+
+    - name: Deploy to Hugging Face Spaces
+      run: |
+        pip install huggingface_hub
+        huggingface-cli login --token ${{ secrets.HF_Token }}
+        # Create Hugging Face Space if it doesn't already exist
+        huggingface-cli repo create hugging-face-demo --type space
+        # Push the changes to your Hugging Face Space
+        git push https://huggingface.co/spaces/rabailanees/hugging-face-demo.git main
+

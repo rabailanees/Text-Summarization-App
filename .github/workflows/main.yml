@@ -35,7 +35,7 @@ jobs:
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
-          git remote add space https://huggingface.co/spaces/rabailanees/hugging-face-demo.git
+          git remote add space https://huggingface.co/spaces/rabail03/hugging-face-demo.git
           git config --global credential.helper store
 
       # Step 5: Push to Hugging Face Spaces
@@ -46,4 +46,4 @@ jobs:
           # Save the Hugging Face token to git credentials helper
           echo "https://huggingface.co:${HF_TOKEN}@huggingface.co" > ~/.git-credentials
           git config --global credential.helper store
-          git push --force https://huggingface.co/spaces/rabailanees/hugging-face-demo.git main
+          git push --force https://huggingface.co/spaces/rabail03/hugging-face-demo.git main

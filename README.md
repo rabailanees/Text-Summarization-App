@@ -1,4 +1,4 @@
-**Text-Summarization-App: CI/CD for ML Model Deployment on Hugging Face Spaces**
+### Text-Summarization-App: CI/CD for ML Model Deployment on Hugging Face Spaces
 
 This repository contains a **Text Summarization Application** with continuous integration and deployment (CI/CD) setup using **GitHub Actions**. The project focuses on deploying a machine learning model for text summarization on **Hugging Face Spaces**.
 

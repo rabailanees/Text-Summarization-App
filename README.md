@@ -1,25 +1,31 @@
----
-title: Demo
-emoji: 🌖
-colorFrom: purple
-colorTo: purple
-sdk: gradio
-sdk_version: 3.0.6
-app_file: app.py
-pinned: false
-license: cc
+Here’s a description you can use for your GitHub repository:
+
 ---
 
+**Text-Summarization-App: CI/CD for ML Model Deployment on Hugging Face Spaces**
 
-[![Sync to Hugging Face hub](https://github.com/nogibjj/hugging-face/actions/workflows/main.yml/badge.svg)](https://github.com/nogibjj/hugging-face/actions/workflows/main.yml)
+This repository contains a **Text Summarization Application** with continuous integration and deployment (CI/CD) setup using **GitHub Actions**. The project focuses on deploying a machine learning model for text summarization on **Hugging Face Spaces**.
 
+### Features:
+- **CI/CD Pipeline**: Automates the deployment process of the machine learning model.
+- **Hugging Face Spaces Deployment**: Easily deploy the model on Hugging Face for fast inference.
+- **Local Development**: Use your local environment to build, test, and prepare the model before pushing to the repository.
 
-[Try Demo Text Summarization Here](https://huggingface.co/spaces/noahgift/demo)
+### How it Works:
+1. **Model Development**: Develop and train a text summarization model locally.
+2. **Push Code to GitHub**: Once the model is ready, push your code to the GitHub repository.
+3. **CI/CD with GitHub Actions**: Upon each push, GitHub Actions automatically triggers the pipeline to test, build, and deploy the model to Hugging Face Spaces.
+4. **Deployment to Hugging Face**: The model will be deployed on Hugging Face Spaces for easy access and usage.
 
+### Prerequisites:
+- Python 3.x
+- GitHub account
+- Hugging Face account
 
-![mlops-hugging-face](https://user-images.githubusercontent.com/58792/170845235-7f00d61c-ea36-4d28-82d0-3a9b8c0f1769.png)
+### Setup:
+1. Clone the repository.
+2. Set up your Hugging Face credentials.
+3. Add your model to the appropriate directory.
+4. Configure the GitHub Actions workflow for deployment.
 
-
-## References
-
-[Watch YouTube Walkthrough](https://youtu.be/VYSGjUa5sc4)
+---
